@@ -1,0 +1,49 @@
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+void swap(int *xp, int *yp) // we use this to swap the values of the variable rathern then the place of variable itself
+{
+	int temp = *xp;
+	*xp=*yp;
+	*yp=temp;
+		
+}
+
+void bubblesort(int a[], int n)
+{
+	int i,j;
+	for(i=0;i<n-1;i++) // for the no. of passes
+	{
+		for(j=0;j<n-i-1;j++) // for the number of compariossons in each pass
+		{
+			if(a[j]>a[j+1])
+			{
+				swap(&a[j],&a[j+1]);// calling swap function
+			}
+		}
+	}
+}
+
+int printarray(int a[],int n)
+{
+	int i;
+	for(i=0; i<n;  i++) // to print the array
+	{
+		cout<<a[i];
+		cout<<endl;
+	}
+	
+}
+int main()
+{
+	int n; // variable for how many value we enter
+	int a[1000]; // note, in this program i should always be less then j, otherwise swap the values.
+	cin>>n; 
+	for( int x=0; x<n; x++)
+	{
+		cin>>a[x];
+	}
+	bubblesort(a,n);
+	cout<<"sorted array is : "<<endl;
+	printarray(a,n);
+}
